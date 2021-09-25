@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.urlencoded({extended: false}))
 
 //Router Linking
-app.use("/", async (request,response) => {
+app.use("/", (request,response) => {
     response.send("Working");
 });
 app.use("/auth", require("./routes/auth.routes.js"));
