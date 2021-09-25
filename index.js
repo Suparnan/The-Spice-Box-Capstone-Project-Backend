@@ -6,6 +6,7 @@ const Recipelist = require("./models/recipe.js")
 const app = express();
 const PORT = process.env.PORT || 4300;
 const connectDB = require('./config/db.js');
+const { request, response } = require('express');
 require('dotenv').config();
 
 //DB Connection
@@ -17,7 +18,9 @@ app.use(cors());
 app.use(express.urlencoded({extended: false}))
 
 //Router Linking
-// app.use("/", require(""));
+app.use("/", async (request,response) => {
+    response.send("Working");
+});
 app.use("/auth", require("./routes/auth.routes.js"));
 
 //Server Connection
